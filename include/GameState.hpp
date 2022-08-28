@@ -5,7 +5,6 @@
 class GameState : public State
 {
     private:
-        Entity player;
 
         //Functions
         void initKeybinds() override;
@@ -18,6 +17,7 @@ class GameState : public State
 
         //Functions
         void endState() override;
+        void checkForQuit() override;
         void updateInput(const float& dt) override;
         void update (const float& dt) override;
         void render (sf::RenderTarget* target = nullptr) override;

@@ -43,17 +43,26 @@ void MainMenuState::loadKeybindsIni(const std::string& filepath)
 
 void MainMenuState::initButtons()
 {
-    buttons["GAME_STATE"] = new Button(125, 180, 250, 70,
-                                &font, "NEW GAME",
-                                sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+    buttons["GAME_STATE"] =   new Button(50, 30, 250, 70,
+                                               &font, "NEW GAME", 35,
+                                               sf::Color(23, 77, 194, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
+                                               sf::Color(23, 77, 194, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0));
 
-    buttons["SETTINGS"] =   new Button(125, 280, 250, 70,
-                                &font, "SETTINGS",
-                                sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+    buttons["SETTINGS"] =     new Button(50, 130, 250, 70,
+                                               &font, "SETTINGS", 35,
+                                               sf::Color(23, 77, 194, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
+                                               sf::Color(23, 77, 194, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0));
 
-    buttons["EXIT"] =      new Button(125, 380, 250, 70,
-                                &font, "EXIT",
-                                sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+    buttons["EDITOR_STATE"] = new Button(50, 230, 250, 70,
+                                               &font, "EDITOR", 35,
+                                               sf::Color(23, 77, 194, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
+                                               sf::Color(23, 77, 194, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0));
+
+
+    buttons["EXIT"] =         new Button(50, 330, 250, 70,
+                                               &font, "EXIT", 35,
+                                               sf::Color(23, 77, 194, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
+                                               sf::Color(23, 77, 194, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0));
 }
 
 //Constructors & Destructors
@@ -78,6 +87,11 @@ MainMenuState::~MainMenuState()
 void MainMenuState::endState()
 {
     std::cout << "ENDED MAIN MENU!" << '\n';
+}
+
+void MainMenuState::checkForQuit()
+{
+
 }
 
 void MainMenuState::updateInput(const float& dt)

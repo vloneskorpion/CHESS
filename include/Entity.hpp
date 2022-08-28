@@ -23,7 +23,6 @@ class Entity
 
     protected:
         sf::RectangleShape shape;
-        float movementSpeed;
 
     public:
         //Constructors & Destructors

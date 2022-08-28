@@ -30,7 +30,7 @@ class State
         void quitState();
 
         //Functions
-        virtual void checkForQuit();
+        virtual void checkForQuit() = 0;
         virtual void endState() = 0;
 
         //-> Update

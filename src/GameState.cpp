@@ -28,11 +28,12 @@ GameState::GameState(sf::RenderWindow* window, std::map<std::string, int>* suppo
     :   State(window, supportedKeys, states)
 {
     initKeybinds();
+    board = new Board(float(window->getSize().x), float(window->getSize().y));
 }
 
 GameState::~GameState()
 {
-
+    delete board;
 }
 
 //Functions
@@ -62,4 +63,5 @@ void GameState::render(sf::RenderTarget* target)
 {
     if(!target)
         target = window;
+    board->render(target);
 }

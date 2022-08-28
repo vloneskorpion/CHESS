@@ -22,7 +22,7 @@ class Entity
     private:
 
     protected:
-        sf::RectangleShape shape;
+        sf::Sprite sprite;
 
     public:
         //Constructors & Destructors
@@ -32,6 +32,7 @@ class Entity
         //Functions
         virtual void move(const float& dt, const float x, const float y);
 
+//        virtual void setPosition(const float& x, const float& y);
         virtual void update(const float& dt);
         virtual void render(sf::RenderTarget* target);
 };

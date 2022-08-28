@@ -1,11 +1,12 @@
 #pragma once
 
 #include "State.hpp"
+#include "Board.hpp"
 
 class GameState : public State
 {
     private:
-
+        Board* board;
         //Functions
         void initKeybinds() override;
         void loadKeybindsIni(const std::string& filepath);

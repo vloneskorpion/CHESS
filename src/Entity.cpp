@@ -23,5 +23,5 @@ void Entity::update(const float& dt)
 
 void Entity::render(sf::RenderTarget* target)
 {
-
+    target->draw(sprite);
 }

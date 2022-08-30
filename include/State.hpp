@@ -40,4 +40,6 @@ class State
 
         virtual void render(sf::RenderTarget* target = nullptr) = 0;
         virtual void initKeybinds() = 0;
+
+        std::unique_ptr<sf::Image> makeImageColorTransparent(std::string filepath, sf::Color color);
 };

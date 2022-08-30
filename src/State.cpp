@@ -30,3 +30,12 @@ void State::updateMousePositions()
     mousePosWindow = sf::Mouse::getPosition(*window);
     mousePosView   = window->mapPixelToCoords(sf::Mouse::getPosition(*window));
 }
+
+std::unique_ptr<sf::Image> State::makeImageColorTransparent(std::string filepath, sf::Color color)
+{
+    std::unique_ptr<sf::Image> imgPtr = std::make_unique<sf::Image>();
+    imgPtr->loadFromFile(filepath);
+    imgPtr->createMaskFromColor(color);
+
+    return imgPtr;
+}

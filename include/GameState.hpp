@@ -8,6 +8,7 @@ class GameState : public State
     private:
         Board* board;
         //Functions
+        void initTextures();
         void initKeybinds() override;
         void loadKeybindsIni(const std::string& filepath);
 

@@ -1,6 +1,14 @@
 #include "GameState.hpp"
 
 //Private Functions
+void GameState::initTextures()
+{
+    if(!textures["PAWNS_SHEET"].loadFromImage(*makeImageColorTransparent(
+            "../resources/images/textures/pawns.png",
+                sf::Color(171, 149, 135))))
+        std::cout << "COULDNT LOAD TEXT\n";
+}
+
 void GameState::initKeybinds()
 {
     loadKeybindsIni("../config/gamestate_keybinds.ini");
@@ -28,7 +36,8 @@ GameState::GameState(sf::RenderWindow* window, std::map<std::string, int>* suppo
     :   State(window, supportedKeys, states)
 {
     initKeybinds();
-    board = new Board(float(window->getSize().x), float(window->getSize().y));
+    initTextures();
+    board = new Board(&textures,float(window->getSize().x), float(window->getSize().y));
 }
 
 GameState::~GameState()

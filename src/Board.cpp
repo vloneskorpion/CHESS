@@ -4,16 +4,18 @@
 
 #include "Board.hpp"
 
-Board::Board(float width, float height)
+Board::Board(std::map<std::string ,sf::Texture>* textures, float width, float height)
+    : textures(textures)
 {
     tileWidth = width / ROW;
     tileHeight = height / COL;
     createBoard();
+    pawn = new Pawn(tileWidth, tileHeight, (*textures)["PAWNS_SHEET"]);
 }
 
 Board::~Board()
 {
-
+    delete pawn;
 }
 
 void Board::createSizeAndColor()
@@ -56,11 +58,12 @@ void Board::createBoard()
 
 void Board::update(const float &dt)
 {
-
+    pawn->update(dt);
 }
 
 void Board::render(sf::RenderTarget *target)
 {
+    //Render board
     for(int i = 0; i < ROW; i++)
     {
         for(int j = 0; j < COL; j++)
@@ -68,4 +71,6 @@ void Board::render(sf::RenderTarget *target)
             target->draw(shapes[i][j]);
         }
     }
+    //Render pawns
+    pawn->render(target);
 }
